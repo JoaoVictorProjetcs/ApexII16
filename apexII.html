@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deslizamentos em Municípios</title>
+<style>
+  body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #f4f4f4; 
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  h1 { 
+    color: #333; 
+  }
+  p { 
+    font-size: 1.1em; 
+    margin-bottom: 20px;
+  }
+  table { 
+    width: 80%; 
+    border-collapse: collapse; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  }
+  th, td { 
+    border: 1px solid #ddd; 
+    padding: 8px; 
+    text-align: left; 
+    background-color: #ffffff;
+  }
+  th { 
+    background-color: #4CAF50; 
+    color: white;
+  }
+  button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+button:hover {
+background-color: #45a049; /* Darker green */
+}
+#bemVindoScreen {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+position: absolute;
+width: 100%;
+height: 100%;
+background-color: rgba(255,255,255,0.9);
+z-index: 10;
+}
+#bemVindoScreen h2 {
+margin-bottom: 20px;
+}
+#bemVindoScreen button {
+padding: 10px 30px;
+font-size: 18px;
+}
+</style>
+<script>
+function displayInfo(municipio) {
+var infoArea = document.getElementById('infoArea');
+
+switch(municipio) {
+case 'Petropolis':
+infoArea.textContent = 'Petrópolis sendo o município mais afetado do Rio de Janeiro por deslizamentos, contabiliza até o momento 152 fatalidades.';
+break;
+case 'São Gonçalo':
+infoArea.textContent = 'São Gonçalo se mostrou o município menos afetado por deslizamentos, contabilizando 13 fatalidades porém, mais de 40 pessoas foram afetadas pelos deslizamentos de terra nos últimos 5 anos.';
+break;
+case 'Magé':
+infoArea.textContent = 'Magé é a segunda cidade mais afetada por deslizamentos, registrando mais de 70 pessoas afetadas.';
+break;
+case 'Resende':
+infoArea.textContent = 'Resende apresentou mais de 14 fatalidades e mais de 43 pessoas foram afetadas pelos deslizamentos.';
+break;
+default:
+infoArea.textContent = 'Informação não disponível.';
+break;
+}
+}
+
+function closeWelcome() {
+document.getElementById('bemVindoScreen').style.display = 'none';
+}
+</script>
+</head>
+<body>
+
+<div id="bemVindoScreen">
+<h2>Bem-vindo ao trabalho de extensão APEX II</h2>
+<p>Este trabalho é baseado na ODS (Objetivo de Desenvolvimento Sustentável) 16.</p>
+<button onclick="closeWelcome()">Continue para o trabalho</button>
+</div>
+
+<h1>Deslizamentos de terra nos últimos 3 anos</h1>
+
+<p>Mais de 15% da população dessas áreas vive em situações de risco de deslizamentos.</p>
+
+<table>
+<tr>
+<th>Município</th>
+<th>Deslizamentos</th>
+<th>Informações</th>
+</tr>
+<tr>
+<td>Petrópolis</td>
+<td>4</td>
+<td><button onclick="displayInfo('Petropolis')">Ver Mais
+</button></td>
+</tr>
+<tr>
+<td>São Gonçalo</td>
+<td>1</td>
+<td><button onclick="displayInfo('São Gonçalo')">Ver Mais</button></td>
+</tr>
+<tr>
+<td>Magé</td>
+<td>2</td>
+<td><button onclick="displayInfo('Magé')">Ver Mais</button></td>
+</tr>
+<tr>
+<td>Resende</td>
+<td>1</td>
+<td><button onclick="displayInfo('Resende')">Ver Mais</button></td>
+</tr>
+</table>
+
+<div id="infoArea" style="margin-top: 20px;"></div>
+
+</body>
+</html>
